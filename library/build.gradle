@@ -1,0 +1,43 @@
+apply plugin: 'java-library'
+apply plugin: 'maven-publish'
+
+repositories {
+    jcenter()
+    mavenLocal()
+}
+
+configurations {
+    contract
+}
+
+dependencies {
+    api 'org.apache.commons:commons-math3:3.6.1'
+    implementation 'com.google.guava:guava:21.0'
+
+    testImplementation 'junit:junit:4.12'
+
+    contract 'junit:junit:4.12'
+    contract 'org.dan.contracttests:consumer-library:+'
+}
+
+task contract(type: JavaExec, dependsOn: compileJava) {
+    classpath tasks.compileJava.outputs.files.files
+    classpath configurations.contract
+
+    main 'org.junit.runner.JUnitCore'
+    args 'LibraryTest'
+}
+
+
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'org.dan.contracttests'
+            artifactId 'library'
+            version '1.1'
+
+            from components.java
+        }
+    }
+}

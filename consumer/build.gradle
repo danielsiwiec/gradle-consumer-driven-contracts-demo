@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    jcenter()
+    mavenLocal()
+}
+
+sourceSets {
+    test {
+        java {
+            srcDirs = ['src/test/java', 'src/contractTests/java']
+        }
+    }
+}
+
+dependencies {
+    compile 'com.google.guava:guava:21.0'
+    compile 'org.dan.contracttests:library:1.0'
+
+    testCompile 'junit:junit:4.12'
+}
+
+mainClassName = 'App'
+
