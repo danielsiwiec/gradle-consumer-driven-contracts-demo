@@ -1,0 +1,6 @@
+include 'consumer'
+include 'library'
+
+include 'monorepo:processing'
+include 'monorepo:utils'
+
