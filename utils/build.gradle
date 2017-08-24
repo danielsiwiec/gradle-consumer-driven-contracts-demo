@@ -25,7 +25,7 @@ task contract(type: JavaExec, dependsOn: compileJava) {
     args 'ProcessorTest'
 }
 
-
+tasks.test.dependsOn contract
 
 publishing {
     publications {
