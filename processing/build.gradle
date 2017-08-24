@@ -15,8 +15,7 @@ sourceSets {
 }
 
 dependencies {
-    compile 'com.google.guava:guava:21.0'
-    compile 'org.dan.contracttests:library:1.0'
+    compile 'contractdemo:utils:+'
 
     testCompile 'junit:junit:4.12'
 }

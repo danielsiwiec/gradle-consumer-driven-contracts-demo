@@ -4,9 +4,9 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class LibraryTest {
+public class ProcessorTest {
     @Test public void testSomeLibraryMethod() {
-        Library classUnderTest = new Library();
-        assertFalse("someLibraryMethod should return 'false'", classUnderTest.someLibraryMethod());
+        Processor processor = new Processor();
+        assertEquals("10:", processor.process("hello world"));
     }
 }
