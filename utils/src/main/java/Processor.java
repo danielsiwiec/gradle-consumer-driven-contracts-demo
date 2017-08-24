@@ -4,7 +4,7 @@ public class Processor {
 
     public String process(String input) {
         saveInputInDatabase(input);
-        return input.length() + token + input.hashCode();
+        return input.hashCode() + token + input.length();
     }
 
     private void saveInputInDatabase(String input) {

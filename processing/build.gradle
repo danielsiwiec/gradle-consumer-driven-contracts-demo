@@ -24,6 +24,7 @@ dependencies {
     compile 'contractdemo:utils:+'
 
     testCompile 'junit:junit:4.12'
+    contractCompile 'org.hamcrest:java-hamcrest:2.0.0.0'
 }
 
 mainClassName = 'App'
