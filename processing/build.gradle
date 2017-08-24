@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'maven-publish'
 
 repositories {
     jcenter()
@@ -7,11 +8,16 @@ repositories {
 }
 
 sourceSets {
-    test {
+    contract {
         java {
-            srcDirs = ['src/test/java', 'src/contractTests/java']
+            srcDirs = ['src/contractTests/java']
         }
     }
+}
+
+configurations {
+    contractCompile.extendsFrom testCompile
+//    contractRuntime.extendsFrom testRuntime
 }
 
 dependencies {
@@ -22,3 +28,23 @@ dependencies {
 
 mainClassName = 'App'
 
+task testJar(type: Jar, dependsOn: testClasses) {
+    from sourceSets.contract.output
+}
+
+task contractTest(type:Test) {
+    testClassesDir = project.sourceSets.contract.output.classesDir
+    classpath = project.sourceSets.contract.runtimeClasspath
+}
+
+publishing {
+    publications {
+        test(MavenPublication) {
+            groupId 'contractdemo'
+            artifactId 'processing-utils-contract'
+            version '1.0'
+
+            artifact testJar
+        }
+    }
+}

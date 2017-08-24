@@ -14,7 +14,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     contract 'junit:junit:4.12'
-    contract 'org.dan.contracttests:consumer-library:+'
+    contract 'contractdemo:processing-utils-contract:+'
 }
 
 task contract(type: JavaExec, dependsOn: compileJava) {
@@ -22,7 +22,7 @@ task contract(type: JavaExec, dependsOn: compileJava) {
     classpath configurations.contract
 
     main 'org.junit.runner.JUnitCore'
-    args 'LibraryTest'
+    args 'ProcessorTest'
 }
 
 

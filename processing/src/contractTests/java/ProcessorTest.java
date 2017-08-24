@@ -7,6 +7,6 @@ import static org.junit.Assert.*;
 public class ProcessorTest {
     @Test public void testSomeLibraryMethod() {
         Processor processor = new Processor();
-        assertEquals("10:", processor.process("hello world"));
+        assertTrue(processor.process("hello world").matches("11:\\d*"));
     }
 }
