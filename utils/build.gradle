@@ -13,7 +13,11 @@ configurations {
 dependencies {
     testImplementation 'junit:junit:4.12'
 
+    // remove these two dependencies once the gradle issue is resolved
+    // https://discuss.gradle.org/t/missing-pom-dependencies-in-a-multi-sourceset-project-using-maven-publish/23872
     contract 'junit:junit:4.12'
+    contract 'org.hamcrest:java-hamcrest:2.0.0.0'
+
     contract 'contractdemo:processing-utils-contract:+'
 }
 
